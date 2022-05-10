@@ -1,0 +1,61 @@
+#text {
+  height: 25px;
+  border-radius: 5px;
+  padding: 4px;
+  border: solid thin #aaa;
+}
+
+#button {
+  padding: 10px;
+  width: 100px;
+  color: white;
+  background-color: lightblue;
+  border: none;
+}
+
+#body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* #body {
+  margin: 0;
+  padding: 0;
+  background: green;
+} */
+
+#box {
+  background-color: red;
+  display: flex; /*le pune pe toate in rand*/
+}
+
+.slidershow{
+  width: 700px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.bar {
+  width: 50px;
+  height: 10px;
+  border: 2px solid #fff;
+  margin: 6px;
+  cursor: pointer;
+}
