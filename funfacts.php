@@ -88,31 +88,6 @@ $user_data = check_login($con);
       It’s a good thing, too, because Americans love to recycle aluminum cans,
       which are recycled more often than any other type of drink container and
       can be recycled over and over again.</p>
-    <p>The average person creates almost <b>five pounds of trash per day</b>,
-    and in 2018, American consumers created 146.2 million tons of trash
-    that ended up in landfills. Thankfully, Americans also recycled and
-    composted almost 94 million tons of waste – a rate that has grown more
-    than 300% in the past 38 years.</p>
-    <p>The average person creates almost <b>five pounds of trash per day</b>,
-    and in 2018, American consumers created 146.2 million tons of trash
-    that ended up in landfills. Thankfully, Americans also recycled and
-    composted almost 94 million tons of waste – a rate that has grown more
-    than 300% in the past 38 years.</p>
-    <p>Cardboard (also known as corrugated) boxes can be recycled at least
-      seven times and can be used to make new packaging boxes and even
-      furniture. The best part is, recycling cardboard is easy.
-      Almost all Americans having access to curbside recycling for their
-      corrugated boxes. Just make sure they’re empty, dry, clean, and flattened.</p>
-    <p>How long does it take for a used aluminum drink can to be recycled into a
-      new one and put back on the grocery shelf? Just 60 days.
-      It’s a good thing, too, because Americans love to recycle aluminum cans,
-      which are recycled more often than any other type of drink container and
-      can be recycled over and over again.</p>
-    <p>The average person creates almost <b>five pounds of trash per day</b>,
-    and in 2018, American consumers created 146.2 million tons of trash
-    that ended up in landfills. Thankfully, Americans also recycled and
-    composted almost 94 million tons of waste – a rate that has grown more
-    than 300% in the past 38 years.</p>
   </div>
 
   <br>
