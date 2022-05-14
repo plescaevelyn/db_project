@@ -2,8 +2,9 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpassword = "";
-$dbname = "login_sample_db";
+$dbname = "gelateria_eve";
 
-if (!$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname)){
+$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
+if (!$con){
   die("Failed to connect!");
 }

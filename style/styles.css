@@ -27,7 +27,6 @@
 } */
 
 #box {
-  background-color: red;
   display: flex; /*le pune pe toate in rand*/
 }
 

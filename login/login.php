@@ -1,8 +1,8 @@
 <?php
 session_start();
 $_SESSION;
-include("connection.php");
-include("functions.php");
+include("../connection.php");
+include("../functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
   // something was posted
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if ($user_data['password'] == $password) {
           $_SESSION['user_id'] = $user_data['user_id'];
-          header("Location: index.php");
+          header("Location: ../index.php");
           die;
         }
       }
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
         echo "Wrong username or password!";
     }
-    header("Location: index.php");
+    header("Location: ../index.php");
     die;
   } else {
     echo "Please enter some valid information!";
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
  <html>
  <head>
    <title>Login</title>
-   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="../style/styles.css">
  </head>
  <body id = "body">
    <div id = "box">
@@ -50,17 +50,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       <div style = "font-size: 20px;margin: 10px;">Login</div><br>
 
         <form method = "post" class="modal-content animate" action="/action_page.php">
-          <div class="container">
-           <label for="user_name"><b>Username</b></label>
+          <div class = "container">
+           <label for = "user_name"><b>Username</b></label>
            <input id = "text" type = "text" placeholder = "Enter Username" name = "user_name" required>
            <br><br>
 
            <label for="password"><b>Password</b></label>
-           <input id = "text"type="password" placeholder="Enter Password" name="password" required>
+           <input id = "text" type = "password" placeholder = "Enter Password" name = "password" required>
            <br><br>
 
            <button type="submit" id = "button">Login</button><br><br>
-           <a href = "signup.php">Click to log in</a><br><br>
+           <a href = "signup.php">Click here to sign up</a><br><br>
           </div>
         </form>
       </div>
