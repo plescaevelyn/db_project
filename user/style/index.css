@@ -1,0 +1,39 @@
+.navbar {
+  overflow: hidden;
+  background-color: #2E4A30;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #d7d7d7;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+#logout {
+  float: right;
+}
+
+a {
+  display: inline;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  margin: 0;
+  padding: 0;
+  background: #E2C9B6;
+}
