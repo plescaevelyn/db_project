@@ -1,5 +1,15 @@
 <?php
-function check_login($con) {
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpassword = "";
+$dbname = "gelateria_eve";
+
+$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
+if (!$con){
+  die("Failed to connect!");
+}
+
+function check_user_login($con) {
   if (isset($_SESSION['user_id'])){
     $id = $_SESSION['user_id'];
     $query = "select * from users where user_id = '$id' limit 1";
@@ -12,7 +22,24 @@ function check_login($con) {
   }
 
   // redirect to login
-  header("Location: login/login.php");
+  header("Location: userindex.php");
+  die;
+}
+
+function check_admin_login($con) {
+  if (isset($_SESSION['admin_id'])){
+    $id = $_SESSION['admin_id'];
+    $query = "select * from admin where admin_id = '$id' limit 1";
+
+    $result = mysqli_query($con, $query);
+    if ($result && mysqli_num_rows($result) > 0) {
+      $user_data = mysqli_fetch_assoc($result);
+      return $user_data;
+    }
+  }
+
+  // redirect to login
+  header("Location: adminindex.php");
   die;
 }
 
@@ -31,159 +58,71 @@ function random_num($length) {
   return $text;
 }
 
-if (isset($_POST['register_btn'])) {
-	register();
+function addNewEmployee($employee_username, $pasword, $email, $salary, $work_hours_total, $position){
+    $this->employee_username = $employee_username;
+    $this->pasword = $pasword;
+    $this->email = $email;
+    $this->salary = $salary;
+    $this->work_hours_total = $work_hours_total;
+    $this->position = $position;
+
+    $query = "INSERT INTO employee(employee_id, employee_username, password, email, salary, work_hours_total, position) VALUES ('','$employee_username','$password','$email','$salary','$work_hours_total','$position')";
+
+    if($con->exec($query)) {
+        header("Location: admin/employeemanagement.php");
+    }
 }
 
-// REGISTER USER
-function register(){
-	// call these variables with the global keyword to make them available in function
-	global $db, $errors, $user_name, $email;
+function updateEmployeeSalary($employee_username, $salary){
+    $this->employee_username = $employee_username;
+    $this->salary = $salary;
 
-	// receive all input values from the form. Call the e() function
-  // defined below to escape form values
-	$user_name = e($_POST['username']);
-	$email = e($_POST['email']);
-	$password_1 = e($_POST['password_1']);
-	$password_2 = e($_POST['password_2']);
-
-	// form validation: ensure that the form is correctly filled
-	if (empty($user_name)) {
-		array_push($errors, "user_name is required");
-	}
-	if (empty($email)) {
-		array_push($errors, "Email is required");
-	}
-	if (empty($password_1)) {
-		array_push($errors, "Password is required");
-	}
-	if ($password_1 != $password_2) {
-		array_push($errors, "The two passwords do not match");
-	}
-
-	// register user if there are no errors in the form
-	if (count($errors) == 0) {
-		$password = md5($password_1);//encrypt the password before saving in the database
-
-		if (isset($_POST['user_type'])) {
-			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO users (user_name, email, user_type, password)
-					  VALUES('$user_name', '$email', '$user_type', '$password')";
-			mysqli_query($db, $query);
-			$_SESSION['success']  = "New user successfully created!!";
-			header('location: home.php');
-		} else {
-			$query = "INSERT INTO users (user_name, email, user_type, password)
-					  VALUES('$user_name', '$email', 'user', '$password')";
-			mysqli_query($db, $query);
-
-			// get id of the created user
-			$logged_in_user_id = mysqli_insert_id($db);
-
-			$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
-			$_SESSION['success']  = "You are now logged in";
-			header('location: index.php');
-		}
-	}
+    $query = "UPDATE employee SET (salary = $'salary') where employee_username = '$employee_username'";
+    if ($con->exec($query)){
+       header("Location: admin/employeemanagement.php");
+    }
 }
 
-// return user array from their id
-function getUserById($id){
-	global $db;
-	$query = "SELECT * FROM users WHERE id=" . $id;
-	$result = mysqli_query($db, $query);
+function updateEmployeePosition($employee_username, $position){
+    $this->employee_username = $employee_username;
+    $this->position = $position;
 
-	$user = mysqli_fetch_assoc($result);
-	return $user;
+    $query = "UPDATE employee SET (quantity = '$quantity') where employee_username = '$employee_username'";
+    if ($con->exec($query)){
+       header("Location: admin/employeemanagement.php");
+    }
 }
 
-// escape string
-function e($val){
-	global $db;
-	return mysqli_real_escape_string($db, trim($val));
+
+function addFlavor($name, $quantity, $price) {
+    $this->$name = $name;
+    $this->quantity = $quantity;
+    $this->price = $price;
+
+   $query = "INSERT INTO book (flavor_id, name, quantity, price) VALUES ('','$name','$quantity','$price')";
+
+    if($con->exec($query)) {
+        header("Location: admin/menuitemmanagement.php");
+    }
 }
 
-function display_error() {
-	global $errors;
-
-	if (count($errors) > 0){
-		echo '<div class="error">';
-			foreach ($errors as $error){
-				echo $error .'<br>';
-			}
-		echo '</div>';
-	}
+function deleteFlavor($name){
+    $query = "DELETE from flavor where name='$name'";
+    if($con->exec($query)){
+       header("Location: admin/menuitemmanagement.php");
+    }
 }
 
-function isLoggedIn()
-{
-	if (isset($_SESSION['user'])) {
-		return true;
-	}else{
-		return false;
-	}
+function updateFlavorPrice($name, $price){
+    $query = "UPDATE flavor SET (price = '$price') where name = '$name'";
+    if($con->exec($query)){
+       header("Location: menuitemmanagement.php");
+    }
 }
 
-if (isset($_GET['logout'])) {
-	session_destroy();
-	unset($_SESSION['user']);
-	header("location: login.php");
-}
-
-// call the login() function if register_btn is clicked
-if (isset($_POST['login_btn'])) {
-	login();
-}
-
-// LOGIN USER
-function login(){
-	global $db, $user_name, $errors;
-
-	// grap form values
-	$user_name = e($_POST['username']);
-	$password = e($_POST['password']);
-
-	// make sure form is filled properly
-	if (empty($user_name)) {
-		array_push($errors, "username is required");
-	}
-	if (empty($password)) {
-		array_push($errors, "Password is required");
-	}
-
-	// attempt login if no errors on form
-	if (count($errors) == 0) {
-		$password = md5($password);
-
-		$query = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password' LIMIT 1";
-		$results = mysqli_query($db, $query);
-
-		if (mysqli_num_rows($results) == 0) { // user found
-			// check if user is admin or user
-			$logged_in_user = mysqli_fetch_assoc($results);
-			if ($logged_in_user['user_type'] == 'admin') {
-
-				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
-				header('location: admin/home.php');
-			}else{
-				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
-
-				header('location: index.php');
-			}
-		}else {
-			array_push($errors, "Wrong user_name/password combination");
-		}
-	}
-}
-
-// ...
-function isAdmin()
-{
-	if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
-		return true;
-	}else{
-		return false;
-	}
+function updateFlavorQty($name, $quantity){
+    $query = "UPDATE flavor SET (quantity = '$quantity') where name = '$name'";
+    if($con->exec($query)){
+       header("Location: menuitemmanagement.php");
+    }
 }

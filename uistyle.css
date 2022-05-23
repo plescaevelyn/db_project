@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.content h1 {
+  font-family: consolas;
+  height: 45%
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.btn {
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: lightpink;
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding: 10px 30px;
+  border: 2px solid pink;
+  background: transparent;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 50px 10px;
+  transform: translate(0, -50%);
+}
