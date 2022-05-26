@@ -42,7 +42,7 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="style/styles.css">
+	<link rel="stylesheet" type="text/css" href="employeemanagementstyle.css">
 </head>
 <body>
 	<div class="header">
@@ -50,17 +50,18 @@
       <table>
         <tr>
           <td><h2>Gelateria Eve Management</h2></td>
-          <td><h3 style = "display: inline; float: right;">Hello, <?php echo $user_data['user_name'];?></h3></td>
+          <!-- <td><h3 style = "display: inline; float: right;">Hello, <?php echo $user_data['user_name'];?></h3></td> -->
         </tr>
         <tr>
-          <td><a href = "adminindex.php">Home</a></td>
-          <td><a href = "employeemanagement.php">Menu Items Management</a></td>
-          <td><a href = "menuitemmanagement.php">Customers Management</a></td>
+					<td><a href = "adminindex.php">Home</a></td>
+          <td><a href = "menuitemmanagement.php">Menu Items Management</a></td>
+          <td><a href = "employeemanagement.php">Employee Management</a></td>
           <td><a href = "adminlogout.php" id = "logout" style = "float: right">Logout</a></td>
         </tr>
       </table>
     </div>
 	</div>
+	<br>
 	<div class="content">
 		<!-- notification message -->
 		<?php if (isset($_SESSION['success'])) : ?>
@@ -90,15 +91,23 @@
 		</div>
 	</div>
 
+	<div class = "CRUD">
+		<a href = "postemployee.php">Insert employee</a>
+		<a href = "updateemployeeposition.php">Update employee position</a></tr>
+		<a href = "updateemployeesalary.php">Update employee salary</a></tr>
+		<a href = "deleteemployee.php">Fire employee</a>
+	</div>
+
 	<div class = "manageemployees">
-		<tr>
-			<th>Employee ID</th>
-			<th>Username</th>
-			<th>Email address</th>
-			<th>Salary</th>
-			<th>No. of working hours</th>
-			<th>Position</th>
-		</tr>
+		<table class = "responsive-table">
+			<tr class = "table-row">
+				<th class = "table-header">Employee ID</th>
+				<th class = "table-header">Username</th>
+				<th class = "table-header">Email address</th>
+				<th class = "table-header">Salary</th>
+				<th class = "table-header">No. of working hours</th>
+				<th class = "table-header">Position</th>
+			</tr>
 
 		<?php
 		error_reporting(0);
@@ -114,7 +123,7 @@
 						<td>".$result['employee_username']."</td>
 						<td>".$result['email']."</td>
 						<td>".$result['salary']."</td>
-						<td>".$result['working_hours_total']."</td>
+						<td>".$result['work_hours_total']."</td>
 						<td>".$result['position']."</td>
 					</tr>
 				";
@@ -122,7 +131,9 @@
 		} else {
 			echo "No records found!";
 		}
+
 		 ?>
+		</table>
 	</div>
 </body>
 </html>

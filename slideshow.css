@@ -1,0 +1,45 @@
+.slidershow{
+  width: 700px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.bar {
+  width: 50px;
+  height: 10px;
+  border: 2px solid #fff;
+  margin: 6px;
+  cursor: pointer;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+
+  font-family: 'Quicksand', sans-sans-serif;
+  font-weight: bold;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 1fr 1fr;
+
+  gap: 10px;
+  padding: 100px;
+  box-sizing: border-box;
+}

@@ -5,6 +5,7 @@ $dbpassword = "";
 $dbname = "gelateria_eve";
 
 $con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
+
 if (!$con){
   die("Failed to connect!");
 }
@@ -20,10 +21,6 @@ function check_user_login($con) {
       return $user_data;
     }
   }
-
-  // redirect to login
-  header("Location: userindex.php");
-  die;
 }
 
 function check_admin_login($con) {
@@ -37,10 +34,6 @@ function check_admin_login($con) {
       return $user_data;
     }
   }
-
-  // redirect to login
-  header("Location: adminindex.php");
-  die;
 }
 
 function random_num($length) {
@@ -59,70 +52,93 @@ function random_num($length) {
 }
 
 function addNewEmployee($employee_username, $pasword, $email, $salary, $work_hours_total, $position){
-    $this->employee_username = $employee_username;
-    $this->pasword = $pasword;
-    $this->email = $email;
-    $this->salary = $salary;
-    $this->work_hours_total = $work_hours_total;
-    $this->position = $position;
+    $con = mysqli_connect("localhost","root","","gelateria_eve");
+    $employee_id = random_num(20);
+    $query = "INSERT INTO employee(employee_id, employee_username, password, email, salary, work_hours_total, position) VALUES ('$employee_id','$employee_username','$password','$email','$salary','$work_hours_total','$position')";
 
-    $query = "INSERT INTO employee(employee_id, employee_username, password, email, salary, work_hours_total, position) VALUES ('','$employee_username','$password','$email','$salary','$work_hours_total','$position')";
+    $result = mysqli_query($con, $query);
 
-    if($con->exec($query)) {
-        header("Location: admin/employeemanagement.php");
+    if($result) {
+        header("Location: employeemanagement.php");
     }
 }
 
 function updateEmployeeSalary($employee_username, $salary){
-    $this->employee_username = $employee_username;
-    $this->salary = $salary;
-
+    $con = mysqli_connect("localhost","root","","gelateria_eve");
     $query = "UPDATE employee SET (salary = $'salary') where employee_username = '$employee_username'";
-    if ($con->exec($query)){
-       header("Location: admin/employeemanagement.php");
+
+    $result = mysqli_query($con, $query);
+
+    if($result) {
+        header("Location: employeemanagement.php");
     }
 }
 
 function updateEmployeePosition($employee_username, $position){
-    $this->employee_username = $employee_username;
-    $this->position = $position;
-
+    $con = mysqli_connect("localhost","root","","gelateria_eve");
     $query = "UPDATE employee SET (quantity = '$quantity') where employee_username = '$employee_username'";
-    if ($con->exec($query)){
-       header("Location: admin/employeemanagement.php");
+    $result = mysqli_query($con, $query);
+
+    if($result) {
+        header("Location: employeemanagement.php");
     }
 }
 
+function fireEmployee($employee_username){
+  $con = mysqli_connect("localhost","root","","gelateria_eve");
+  $query = "DELETE FROM employee WHERE employee_username = $employee_username";
+  $result = mysqli_query($con, $query);
+
+  if($result) {
+      header("Location: employeemanagement.php");
+  }
+}
 
 function addFlavor($name, $quantity, $price) {
-    $this->$name = $name;
-    $this->quantity = $quantity;
-    $this->price = $price;
+    $con = mysqli_connect("localhost","root","","gelateria_eve");
+    $user_id = random_num(20);
 
-   $query = "INSERT INTO book (flavor_id, name, quantity, price) VALUES ('','$name','$quantity','$price')";
+    $query = "INSERT INTO flavor (flavor_id, name, quantity, price) VALUES ('$user_id','$name','$quantity','$price')";
 
-    if($con->exec($query)) {
-        header("Location: admin/menuitemmanagement.php");
+    $result = mysqli_query($con, $query);
+
+    if($result) {
+        header("Location: menuitemmanagement.php");
+    } else {
+      echo "Please enter some valid information!";
     }
 }
 
 function deleteFlavor($name){
+    $con = mysqli_connect("localhost","root","","gelateria_eve");
+
     $query = "DELETE from flavor where name='$name'";
-    if($con->exec($query)){
-       header("Location: admin/menuitemmanagement.php");
+
+    $result = mysqli_query($con, $query);
+
+    if($result) {
+        header("Location: menuitemmanagement.php");
     }
 }
 
 function updateFlavorPrice($name, $price){
-    $query = "UPDATE flavor SET (price = '$price') where name = '$name'";
-    if($con->exec($query)){
-       header("Location: menuitemmanagement.php");
+    $con = mysqli_connect("localhost","root","","gelateria_eve");
+    $query = "UPDATE flavor SET price = '$price' where name = '$name'";
+
+    $result = mysqli_query($con, $query);
+
+    if($result) {
+        header("Location: menuitemmanagement.php");
     }
 }
 
 function updateFlavorQty($name, $quantity){
-    $query = "UPDATE flavor SET (quantity = '$quantity') where name = '$name'";
-    if($con->exec($query)){
-       header("Location: menuitemmanagement.php");
+    $con = mysqli_connect("localhost","root","","gelateria_eve");
+    $query = "UPDATE flavor SET quantity = '$quantity' where name = '$name'";
+
+    $result = mysqli_query($con, $query);
+
+    if($result) {
+        header("Location: menuitemmanagement.php");
     }
 }

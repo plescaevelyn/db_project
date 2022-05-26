@@ -1,4 +1,5 @@
 <?php
+
 define('ADMIN','C:/xampp/htdocs/gelateria_eve');
 include ADMIN . '/functions.php';
 
@@ -14,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $query = "insert into users (user_id, user_name, password, mail) values ('$user_id','$user_name','$password','$email')";
 
     mysqli_query($con, $query);
-
     header("Location: userlogin.php");
     die;
   } else {
@@ -26,37 +26,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
 	<title>Gelateria Eve</title>
 </head>
 <body>
-<div class="header">
-	<h2>Register</h2>
-</div>
 <form method="post" action="usersignup.php">
   <div class="container">
-    <td>
-      <th><label for="user_name"><b>Username</b></label></th>
-      <th><input id = "text" type = "text" placeholder = "Enter Username" name = "user_name" required></th>
-    </td>
+    <form method = "POST">
+ 	 <div class="login">
+ 	   <div class="heading">
+ 	     <h2>Register</h2>
+ 	     <form action="#">
 
-    <td>
-      <th><label for="email"><b>E-mail</b></label></th>
-      <th><input id = "text" type = "text" placeholder = "Enter email adress" name = "email" required></th>
-    </td>
+ 	       <div class="input-group input-group-lg">
+ 	         <span class="input-group-addon" for = "user_name"><i class="fa fa-user"></i></span>
+ 	         <input type="text" class="form-control" placeholder="Username" name = "user_name">
+ 	           </div>
 
-    <td>
-      <th><label for="password"><b>Password</b></label></th>
-      <th><input id = "text"type="password" placeholder="Enter Password" name="password" required></th>
-    </td>
+           <div class="input-group input-group-lg">
+             <span class="input-group-addon" for = "email"><i></i></span>
+             <input type="text" class="form-control" placeholder="Email" name = "email">
+            </div>
 
-    <td>
-      <th><button type="submit" class="btn" name="register_btn">Register</button></th>
-    </td>
-  </div>
-	<p>
-		Already a member? <a href="userlogin.php">Sign in</a>
-	</p>
+ 	         <div class="input-group input-group-lg">
+ 	           <span class="input-group-addon" for = "password"><i class="fa fa-lock"></i></span>
+ 	           <input type="password" class="form-control" placeholder="Password" name = "password">
+ 	         </div>
+
+ 	         <button type="submit" class="float">Sign up</button>
+
+ 					 <a href = "userlogin.php">Already a member? Click here to login!</a>
+ 	        </form>
+ 	  		</div>
+ 	  </div>
+ 	 </form>
 </form>
 </body>
 </html>

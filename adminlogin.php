@@ -1,6 +1,4 @@
 <?php
-  session_start();
-  $_SESSION;
   define('ADMIN','C:/xampp/htdocs/gelateria_eve');
   include ADMIN . '/functions.php';
 
@@ -22,6 +20,7 @@
         if ($user_data['password'] == $password) {
           $_SESSION['admin_username'] = $user_data['admin_username'];
           header("Location: adminindex.php", true);
+          exit();
           die;
         }
       }
@@ -29,8 +28,8 @@
     } else {
         echo "Wrong username or password!";
     }
-
     header("Location: uiindex.html");
+    exit();
     die;
   } else {
     echo "Please enter some valid information!";
@@ -59,8 +58,6 @@
           </div>
 
           <button type="submit" class="float">Login</button>
-
-          <a href = "usersignup.php">Click here to sign up!</a>
     </div>
    </div>
    </form>

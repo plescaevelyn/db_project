@@ -2,28 +2,28 @@
 	define('ADMIN','C:/xampp/htdocs/gelateria_eve');
 	include ADMIN . '/functions.php';
 
-  $user_data = check_admin_login($con);
+  $user_data = check_user_login($con);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
-	<link href="menuitemstyle.css" rel="stylesheet">
+	<title>Menu</title>
+  <link rel = "stylesheet" href = "menuitemstyle.css">
 </head>
 <body>
 	<div class="header">
     <div class="navbar">
       <table>
         <tr>
-          <td><h2>Gelateria Eve Management</h2></td>
+          <td><h2>Gelateria Eve</h2></td>
           <!-- <td><h3 style = "display: inline; float: right;">Hello, <?php echo $user_data['user_name'];?></h3></td> -->
         </tr>
         <tr>
-          <td><a href = "adminindex.php">Home</a></td>
-          <td><a href = "menuitemmanagement.php">Menu Items Management</a></td>
-          <td><a href = "employeemanagement.php">Employee Management</a></td>
-          <td><a href = "adminlogout.php" id = "logout" style = "float: right">Logout</a></td>
+          <td><a href = "userindex.php">Home</a></td>
+          <td><a href = "menu.php">See our menu</a></td>
+          <td><a href = "testimonies.php">Contact us</a></td>
+        	<td><a href = "userlogout.php" id = "logout" style = "float: right">Logout</a></td>
         </tr>
       </table>
     </div>
@@ -60,24 +60,16 @@
 
 		<br>
 
-		<div class = "CRUD">
-			<a href = "postmenuitem.php">Insert ice cream</a>
-			<a href = "updatemenuitemprice.php">Update ice cream price</a>
-			<a href = "updatemenuitemquantity.php">Update ice cream quantity</a></tr>
-			<a href = "deletemenuitem.php">Delete ice cream</a>
-		</div>
-
 		<div class = "menuitems">
 			<table>
 			<tr class = "table-row">
 				<th class = "table-header">Flavor name</th>
 				<th class = "table-header">Price</th>
-				<th class = "table-header">Quantity</th>
 			</tr>
 
 			<?php
 			error_reporting(0);
-			$query = "SELECT * FROM flavor";
+			$query = "SELECT name, price FROM flavor";
 			$data = mysqli_query($con, $query);
 			$total = mysqli_num_rows($data);
 
@@ -87,7 +79,6 @@
 						<tr>
 							<td>".$result['name']."</td>
 							<td>".$result['price']."</td>
-							<td>".$result['quantity']."</td>
 						</tr>
 					";
 				}
@@ -97,6 +88,37 @@
 			 ?>
 		 </table>
 		</div>
+
+    <div class = "menuitems">
+      <h3><b>See our menu items below 5 ron!</b></h3>
+      <table>
+      <tr class = "table-row">
+        <th class = "table-header">Flavor name</th>
+        <th class = "table-header">Price</th>
+      </tr>
+
+      <?php
+      error_reporting(0);
+      $query = "SELECT name, price FROM flavors_costing_lt_5";
+      $data = mysqli_query($con, $query);
+      $total = mysqli_num_rows($data);
+
+      if ($total != 0) {
+        while ($result = mysqli_fetch_assoc($data)){
+          echo "
+            <tr>
+              <td>".$result['name']."</td>
+              <td>".$result['price']."</td>
+            </tr>
+          ";
+        }
+      } else {
+        echo "No records found!";
+      }
+       ?>
+     </table>
+     <p> Go check these out at our newest location! @observatory student complex</p>
+    </div>
 
 	</div>
 </body>

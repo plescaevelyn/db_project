@@ -9,7 +9,7 @@
 <html>
 <head>
 	<title>Home</title>
-	<link rel="stylesheet" type="text/css" href="style/styles.css">
+	<link rel="stylesheet" type="text/css" href="adminindexstyle.css">
 </head>
 <body>
 	<div class="header">
@@ -17,12 +17,12 @@
       <table>
         <tr>
           <td><h2>Gelateria Eve Management</h2></td>
-          <td><h3 style = "display: inline; float: right;">Hello, <?php echo $user_data['user_name'];?></h3></td>
+          <!-- <td><h3 style = "display: inline; float: right;">Hello, <?php echo $user_data['user_name'];?></h3></td> -->
         </tr>
         <tr>
-          <td><a href = "adminindex.php">Home</a></td>
-          <td><a href = "employeemanagement.php">Menu Items Management</a></td>
-          <td><a href = "menuitemmanagement.php">Customers Management</a></td>
+					<td><a href = "adminindex.php">Home</a></td>
+          <td><a href = "menuitemmanagement.php">Menu Items Management</a></td>
+          <td><a href = "employeemanagement.php">Employee Management</a></td>
           <td><a href = "adminlogout.php" id = "logout" style = "float: right">Logout</a></td>
         </tr>
       </table>
@@ -51,6 +51,38 @@
 					</small>
 				<?php endif ?>
 			</div>
+		</div>
+
+		<div>
+			<table>
+			<h3> See most recent feedback!</h3>
+			<tr class = "table-row">
+				<th class = "table-header">Username</th>
+				<th class = "table-header">Email</th>
+				<th class = "table-header">Feedback</th>
+			</tr>
+
+			<?php
+			error_reporting(0);
+			$query = "SELECT user_name, email, comment FROM feedback";
+			$data = mysqli_query($con, $query);
+			$total = mysqli_num_rows($data);
+
+			if ($total != 0) {
+				while ($result = mysqli_fetch_assoc($data)){
+					echo "
+						<tr>
+							<td>".$result['user_name']."</td>
+							<td>".$result['email']."</td>
+							<td>".$result['comment']."</td>
+						</tr>
+					";
+				}
+			} else {
+				echo "No records found!";
+			}
+			 ?>
+		 </table>
 		</div>
 	</div>
 </body>
