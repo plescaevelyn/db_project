@@ -48,11 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </div>
 	</div>
 
-  <div id = "box">
-    <div class="container">
-      <span class="big-circle"></span>
-      <div class="form">
-        <div class="contact-info">
+  <div class="container">
+    <div class="form">
+      <div class="contact-info">
         <h3 class="title">You can find us here!</h3>
         <div class="info">
           <div class="information">
@@ -69,34 +67,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   <br>
 
   <form method="POST">
-    <form method = "post" class="modal-content animate" action="/action_page.php">
-       <div class = "container">
-         <p>Leave us a review/suggestions/ideas:</p>
+    <div class="container">
+      <form action="testimonies.php">
+        <label for="user_name">First Name</label>
+        <input type="text" id="fname" name="user_name" placeholder="Your username...">
 
-         <table>
-         <tr>
-         <td><label for="user_name">Username:</label></td>
-         <td><input type = "text" name = "user_name" placeholder="Your user name" required></input></td>
-         </tr>
+        <label for="email">Email address</label>
+        <input type="text" id="email" name="email" placeholder="Your e-mail address...">
 
-         <tr>
-         <td><label for="email">E-mail adress:</label></td>
-         <td><input type = "text" name = "email" placeholder="Your e-mail (optional)"></input></td>
-         </tr>
+        <label for="comment">Your message</label>
+        <textarea id="comment" name="comment" placeholder="Write something..." style="height:200px"></textarea>
 
-         <tr>
-         <td><label for="comment">Your feedback:</label></td>
-         <td><textarea name = "comment" row = "15" cols = "50" placeholder="Your feedback here!"></textarea></td>
-         </tr>
-
-         <tr>
-           <td><input id = "button" type = submit value = "Submit!"></input></td>
-           <td><input id = "button" type = reset value = "Clear!"></input></td>
-         </tr>
-         </table>
-      </div>
-    </form>
-  </div>
-</form>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </form>
 </body>
 </html>

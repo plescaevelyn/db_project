@@ -18,22 +18,21 @@
 <html>
 <head>
   <title>Insert menu item</title>
+  <link rel = "stylesheet" href = "crudstyle.css">
 </head>
-<body id = "body">
+<body>
   <form method = "POST">
-    <div class="heading">
-      <h2>Insert new ice cream</h2>
-         <div>
-           <input type="text" placeholder="Name" name = "name">
-         </div>
-         <div>
-           <input type="text" placeholder="Price" name = "price">
-         </div>
-         <div>
-           <input type="text" placeholder="Quantity" name = "quantity">
-         </div>
+      <h2>Add new ice cream flavor</h2>
+        <label for = "name">
+        <input type="text" placeholder="Name" name = "name">
 
-         <button type="submit" class="float">Insert ice cream</button>
+        <label for = "price">
+        <input type="text" placeholder="Price" name = "price">
+
+        <label for = "quantity">
+        <input type="text" placeholder="Quantity" name = "quantity">
+
+        <button type="submit" class="float">Add new flavor</button>
    </div>
   </form>
 </body>

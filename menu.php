@@ -28,11 +28,11 @@
 
 		<br>
 
-		<div class = "menuitems">
+		<div id = "menuitems">
 			<table>
-			<tr class = "table-row">
-				<th class = "table-header">Flavor name</th>
-				<th class = "table-header">Price</th>
+			<tr>
+				<th>Flavor name</th>
+				<th>Price</th>
 			</tr>
 
 			<?php
@@ -57,12 +57,12 @@
 		 </table>
 		</div>
 
-    <div class = "menuitems">
+    <div id = "menuitems">
       <h3><b>See our menu items below 5 ron!</b></h3>
       <table>
-      <tr class = "table-row">
-        <th class = "table-header">Flavor name</th>
-        <th class = "table-header">Price</th>
+      <tr>
+        <th>Flavor name</th>
+        <th>Price</th>
       </tr>
 
       <?php

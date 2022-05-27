@@ -15,17 +15,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Delete menu item</title>
+  <title>Delete flavor</title>
+  <link rel = "stylesheet" href = "crudstyle.css">
 </head>
-<body id = "body">
+<body>
   <form method = "POST">
-    <div class="heading">
-      <h2>Delete an ice cream flavor</h2>
-         <div>
-           <input type="text" placeholder="Name" name = "name">
-         </div>
+      <h2>Delete an ice cream flavor from the menu</h2>
+        <label for = "name">
+        <input type="text" placeholder="Name" name = "name">
 
-         <button type="submit" class="float">Delete ice cream</button>
+        <button type="submit" class="float">Delete flavor</button>
    </div>
   </form>
 </body>

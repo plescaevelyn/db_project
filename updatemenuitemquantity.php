@@ -17,19 +17,18 @@
 <html>
 <head>
   <title>Update menu item quantity</title>
+  <link rel = "stylesheet" href = "crudstyle.css">
 </head>
-<body id = "body">
+<body>
   <form method = "POST">
-    <div class="heading">
-      <h2>Update the quantity of an ice cream flavor</h2>
-         <div>
-           <input type="text" placeholder="Name" name = "name">
-         </div>
-         <div>
-           <input type="text" placeholder="New quantity" name = "quantity">
-         </div>
+      <h2>Update ice cream flavor quantity</h2>
+        <label for = "name">
+        <input type="text" placeholder="Name" name = "name">
 
-         <button type="submit" class="float">Update ice cream quantity</button>
+        <label for = "quantity">
+        <input type="text" placeholder="New quantity" name = "quantity">
+
+        <button type="submit" class="float">Update quantity</button>
    </div>
   </form>
 </body>

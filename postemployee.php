@@ -21,32 +21,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Insert menu item</title>
+  <title>Hire new employee</title>
+  <link rel = "stylesheet" href = "crudstyle.css">
 </head>
-<body id = "body">
+<body>
   <form method = "POST">
-    <div class="heading">
-      <h2>Insert new employee</h2>
-         <div>
-           <input type="text" placeholder="Employee username" name = "employee_username">
-         </div>
-         <div>
-           <input type="text" placeholder="Password" name = "password">
-         </div>
-         <div>
-           <input type="text" placeholder="Email" name = "email">
-         </div>
-         <div>
-           <input type="text" placeholder="Salary" name = "salary">
-         </div>
-         <div>
-           <input type="text" placeholder="No. of working hours" name = "work_hours_total">
-         </div>
-         <div>
-           <input type="text" placeholder="Position" name = "position">
-         </div>
+      <h2>Hire a new employee</h2>
+        <label for = "employee_username">
+        <input type="text" placeholder="Username" name = "employee_username">
 
-         <button type="submit" class="float">Hire employee!</button>
+        <label for = "password">
+        <input type="password" placeholder="Password" name = "password">
+
+        <label for = "email">
+        <input type="text" placeholder="Email" name = "email">
+
+        <label for = "salary">
+        <input type="text" placeholder="Salary" name = "salary">
+
+        <label for = "work_hours_total">
+        <input type="text" placeholder="No. of working hours" name = "work_hours_total">
+
+        <label for = "position">
+        <input type="text" placeholder="Position" name = "position">
+
+        <button type="submit" class="float">Hire new employee</button>
    </div>
   </form>
 </body>

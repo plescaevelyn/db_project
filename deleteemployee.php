@@ -15,17 +15,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Delete menu item</title>
+  <title>Delete employee</title>
+  <link rel = "stylesheet" href = "crudstyle.css">
 </head>
-<body id = "body">
+<body>
   <form method = "POST">
-    <div class="heading">
       <h2>Fire an employee</h2>
-         <div>
-           <input type="text" placeholder="Employee username" name = "employee_username">
-         </div>
+        <label for = "employee_username">
+        <input type="text" placeholder="Username" name = "employee_username">
 
-         <button type="submit" class="float">Fire employee!</button>
+        <button type="submit" class="float">Fire</button>
    </div>
   </form>
 </body>

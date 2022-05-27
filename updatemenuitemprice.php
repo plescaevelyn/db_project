@@ -17,19 +17,18 @@
 <html>
 <head>
   <title>Update menu item price</title>
+  <link rel = "stylesheet" href = "crudstyle.css">
 </head>
-<body id = "body">
+<body>
   <form method = "POST">
-    <div class="heading">
-      <h2>Update the price of an ice cream flavor</h2>
-         <div>
-           <input type="text" placeholder="Name" name = "name">
-         </div>
-         <div>
-           <input type="text" placeholder="New price" name = "price">
-         </div>
+      <h2>Update ice cream flavor price</h2>
+        <label for = "name">
+        <input type="text" placeholder="Name" name = "name">
 
-         <button type="submit" class="float">Update ice cream price</button>
+        <label for = "price">
+        <input type="text" placeholder="New price" name = "price">
+
+        <button type="submit" class="float">Update price</button>
    </div>
   </form>
 </body>
