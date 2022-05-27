@@ -30,24 +30,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- <link rel = "stylesheet" href = "style\testimonies.css"> -->
-  <meta charset="utf-8">
-  <title>Gelateria Eve</title>
+  <title>Contact us</title>
+  <link rel = "stylesheet" href = "testimoniesstyle.css">
 </head>
 <body id = "body">
-  <div class="navbar">
-    <table>
-      <tr>
-        <td><h2>Gelateria Eve</h2></td>
-      </tr>
-      <tr>
-        <td><a href = "userindex.php">Home</a></td>
-        <td><a href = "menu.php">See our menu</a></td>
-        <td><a href = "testimonies.php">Contact us</a></td>
-        <td><a href = "userlogout.php" id = "logout" style = "float: right">Logout</a></td>
-      </tr>
-    </table>
-  </div>
+  <div class="header">
+    <div class="navbar">
+			<ul>
+				<h2 style = "color: white;">Gelateria Eve</h2>
+			</ul>
+			<ul>
+			  <li><a href = "userindex.php">Home</a></li>
+			  <li><a href = "menu.php">See our menu</a></li>
+			  <li><a href = "testimonies.php">Contact us</a></li>
+			  <li style = "float:right"><a class="active" href = "userlogout.php">Log out</a></li>
+			</ul>
+    </div>
+	</div>
 
   <div id = "box">
     <div class="container">

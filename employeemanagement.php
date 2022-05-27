@@ -41,7 +41,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Employee management</title>
 	<link rel="stylesheet" type="text/css" href="employeemanagementstyle.css">
 </head>
 <body>

@@ -9,54 +9,22 @@
 <html>
 <head>
 	<title>Menu</title>
-  <link rel = "stylesheet" href = "menuitemstyle.css">
+  <link rel = "stylesheet" href = "menustyle.css">
 </head>
 <body>
 	<div class="header">
     <div class="navbar">
-      <table>
-        <tr>
-          <td><h2>Gelateria Eve</h2></td>
-          <!-- <td><h3 style = "display: inline; float: right;">Hello, <?php echo $user_data['user_name'];?></h3></td> -->
-        </tr>
-        <tr>
-          <td><a href = "userindex.php">Home</a></td>
-          <td><a href = "menu.php">See our menu</a></td>
-          <td><a href = "testimonies.php">Contact us</a></td>
-        	<td><a href = "userlogout.php" id = "logout" style = "float: right">Logout</a></td>
-        </tr>
-      </table>
+			<ul>
+				<h2 style = "color: white;">Gelateria Eve</h2>
+			</ul>
+			<ul>
+			  <li><a href = "userindex.php">Home</a></li>
+			  <li><a href = "menu.php">See our menu</a></li>
+			  <li><a href = "testimonies.php">Contact us</a></li>
+			  <li style = "float:right"><a class="active" href = "userlogout.php">Log out</a></li>
+			</ul>
     </div>
 	</div>
-	<div class="content">
-		<!-- notification message -->
-		<?php if (isset($_SESSION['success'])) : ?>
-			<div class="error success" >
-				<h3>
-					<?php
-						echo $_SESSION['success'];
-						unset($_SESSION['success']);
-					?>
-				</h3>
-			</div>
-		<?php endif ?>
-
-		<div class="profile_info">
-			<!-- <img src="images/user_profile.png"  > -->
-
-			<div>
-				<?php  if (isset($_SESSION['user'])) : ?>
-					<strong><?php echo $_SESSION['user']['user_name']; ?></strong>
-
-					<small>
-						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
-						<br>
-						<a href="index.php?logout='1'" style="color: red;">logout</a>
-					</small>0
-
-				<?php endif ?>
-			</div>
-		</div>
 
 		<br>
 
@@ -117,6 +85,8 @@
       }
        ?>
      </table>
+
+		 <br>
      <p> Go check these out at our newest location! @observatory student complex</p>
     </div>
 

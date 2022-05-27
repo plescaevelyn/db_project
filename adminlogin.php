@@ -40,10 +40,23 @@
  <!DOCTYPE html>
  <html>
  <head>
-   <title>Login</title>
+  <title>Admin login</title>
    <link rel="stylesheet" href = "login.css">
  </head>
  <body id = "body">
+   <style>
+     body{
+       width: 100%;
+       height: 100vh;
+       background-image: url(resources/loginbg.png);
+       background-size: auto;
+       background-position: center;
+       background-repeat: repeat;
+       box-sizing: border-box;
+       padding-left: 8%;
+       padding-right: 8%;
+     }
+   </style>
    <form method = "POST">
    <div class="login">
      <div class="heading">

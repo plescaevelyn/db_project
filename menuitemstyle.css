@@ -2,10 +2,22 @@ body {
   font-family: 'lato', sans-serif;
 }
 
+div {
+  white-space: normal;
+}
+
+.header {
+  max-width: 1000px;
+  margin-left: 200px;
+  margin-right: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .menuitems {
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 200px;
+  margin-right: 100px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -36,6 +48,7 @@ h2 {
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
   }
+}
 
 .CRUD {
   height: 100%;
@@ -46,13 +59,13 @@ h2 {
   left: 0;
   background-color: #111;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 25px;
 }
 
 .CRUD a {
   padding: 6px 6px 6px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #818181;
   display: block;
 }
@@ -63,7 +76,7 @@ h2 {
 
 @media screen and (max-height: 450px) {
   .CRUD {padding-top: 15px;}
-  .CRUD a {font-size: 18px;}
+  .CRUD a {font-size: 16px;}
 }
 
 @media all and (max-width: 767px) {

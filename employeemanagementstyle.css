@@ -2,10 +2,22 @@ body {
   font-family: 'lato', sans-serif;
 }
 
-.manageemployees {
+div {
+  white-space: normal;
+}
+
+.header {
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 200px;
+  margin-right: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.employeemanagement {
+  max-width: 1000px;
+  margin-left: 200px;
+  margin-right: 100px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -14,13 +26,12 @@ h2 {
   font-size: 26px;
   margin: 20px 0;
   text-align: center;
-  small {
-    font-size: 0.5em;
-  }
 }
 
 .responsive-table {
   table {
+    margin-left: 200px;
+    margin-right: 100px;
     border-radius: 3px;
     padding: 25px 30px;
     display: flex;
@@ -39,13 +50,42 @@ h2 {
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
   }
+}
 
-  @media all and (max-width: 767px) {
-    .table-header {
-      display: none;
-    }
-    .table-row{
+.CRUD {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
 
-    }
+.CRUD a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.CRUD a:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .CRUD {padding-top: 15px;}
+  .CRUD a {font-size: 18px;}
+}
+
+@media all and (max-width: 767px) {
+  .table-header {
+    display: none;
+  }
+  .table-row{
+
   }
 }

@@ -1,36 +1,13 @@
-@import "bourbon";
-
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
-
-$shadow-color: #23203b;
-$input-color: lighten(#AB9E95, 10%);
-$input-border-color: #5E5165;
-$button-background-color: #27AE60;
-
 * {
   margin: 0;
   padding: 0;
-}
-
-html {
-  background: url(https://dl.dropboxusercontent.com/u/159328383/background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-body {
-  background: transparent;
 }
 
 body, input, button {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-@mixin normalize-input {
+/* @mixin normalize-input {
   display: block;
   width: auto;
   height: auto;
@@ -39,7 +16,7 @@ body, input, button {
   box-shadow: none;
   background: none;
   border-radius: 0px;
-}
+} */
 
 .login {
   padding: 15px;
@@ -57,7 +34,6 @@ body, input, button {
       color: rgba(255, 255, 255, 0.7);
       display: inline-block;
       padding-bottom: 5px;
-      text-shadow: 1px 1px 3px $shadow-color;
     }
   }
 
@@ -105,11 +81,8 @@ body, input, button {
       padding: 5px 0;
       width: 100%;
       border-radius: 3px;
-      color: lighten($button-background-color, 40%);
-      border-bottom: 4px solid darken($button-background-color, 10%);
 
       &:hover {
-        background: tint($button-background-color, 4%);
         -webkit-animation: hop 1s;
         animation: hop 1s;
       }
@@ -132,8 +105,6 @@ body, input, button {
   -webkit-transform: translateY(-3px);
   transform: translateY(-3px);
 }
-
-/* Large Devices, Wide Screens */
 
 @media only screen and (max-width : 1500px) {
 }
@@ -163,7 +134,6 @@ body, input, button {
   }
 }
 
-/* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
   .login {
     margin-top: 0;
@@ -173,20 +143,6 @@ body, input, button {
   }
 }
 
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) {
-  .login {
-
-    h2 {
-      margin-top: 0;
-    }
-
-    margin-top: 0;
-    width: 400px;
-    font-size: 1em;
-    min-height: 0;
-  }
-}
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px) {

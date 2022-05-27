@@ -8,25 +8,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Flavors management</title>
 	<link href="menuitemstyle.css" rel="stylesheet">
 </head>
 <body>
 	<div class="header">
-    <div class="navbar">
-      <table>
-        <tr>
-          <td><h2>Gelateria Eve Management</h2></td>
-          <!-- <td><h3 style = "display: inline; float: right;">Hello, <?php echo $user_data['user_name'];?></h3></td> -->
-        </tr>
-        <tr>
-          <td><a href = "adminindex.php">Home</a></td>
-          <td><a href = "menuitemmanagement.php">Menu Items Management</a></td>
-          <td><a href = "employeemanagement.php">Employee Management</a></td>
-          <td><a href = "adminlogout.php" id = "logout" style = "float: right">Logout</a></td>
-        </tr>
-      </table>
-    </div>
+    <table>
+      <tr>
+        <td><h2>Gelateria Eve Management</h2></td>
+        <!-- <td><h3 style = "display: inline; float: right;">Hello, <?php echo $user_data['user_name'];?></h3></td> -->
+      </tr>
+      <tr>
+        <td><a href = "adminindex.php">Home</a></td>
+        <td><a href = "menuitemmanagement.php">Menu Items Management</a></td>
+        <td><a href = "employeemanagement.php">Employee Management</a></td>
+        <td><a href = "adminlogout.php" id = "logout" style = "float: right">Logout</a></td>
+      </tr>
+    </table>
 	</div>
 	<div class="content">
 		<!-- notification message -->
@@ -96,7 +94,7 @@
 			}
 			 ?>
 		 </table>
-		</div>
+	</div>
 
 	</div>
 </body>
